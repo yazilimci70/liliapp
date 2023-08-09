@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/instagram.css">
+</head>
+<body>
+    <div class="container">
+    <div class="dil text-center">
+        <select name="" id="">
+            <option value="">Türkçe</option>
+        </select>
+    </div>
+
+    <div class="row justify-content-center">
+    <div class="logo col-5">
+        <img src="image/Logo-Instagram.png" alt="">
+    </div>
+</div>
+<div class="row">
+    <center>
+    <div class="facebook-btn col-8">
+        <button><i class="fa-brands fa-square-facebook"></i> Facebook ile Devam Et</button>
+    </div>
+</center>
+</div>
+<div class="row justify-content-center">
+<div class="col-3 text-start">
+    <div class="cizgi"></div>
+</div>
+<div class="col-2 text-center">
+    <div class="yazi">YA DA</div>
+</div>
+<div class="col-3 text-end">
+    <div class="cizgi"></div>
+</div>
+</div>
+
+<div class="login-page">
+    <center>
+    <div class="text col-8">
+        <input type="text" class="" name="text" id="inputField" autocomplete="off" required />
+        <label for="inputField" class="label-name">
+          <span class="content-name">
+            Telefon numarası, kullanıcı adı veya e-posta
+          </span>
+        </label>
+    </div>
+    <div class="text col-8">
+        <input type="password" class="" name="password" id="inputpass" oninput="checkInputLength()" autocomplete="off" required />
+        <label for="inputpass" class="label-name">
+          <span class="content-name">
+            Şifre
+          </span>
+        </label>
+        <span class="gizle col-2" id="gizle">
+            <button onclick="gizle()" id="gizle-btn">Göster</button>
+           </label>
+        </span>
+    </div>
+
+    <div class="unuttun col-8">
+        <div class="text-end"><a href="https://www.instagram.com/accounts/password/reset/">Şifreni mi unuttun?</a></div>
+    </div>
+</center>
+</div>
+
+<div class="row">
+    <center>
+    <div class="giris-btn col-8">
+        <button id="my-button" disabled>Giriş yap</button>
+    </div>
+</center>
+</div>
+
+<div class="yokmu text-center">
+    Hesabın yok mu? <a href="https://www.instagram.com/accounts/emailsignup/">Kaydol</a>
+</div>
+</div>
+<div class="footer">
+<div class="row justify-content-center">
+<div class="col-2">
+<div class="from text-center">from</div>
+<img src="image/Instagram-Meta-Logo-PNG-1-768x251.png" alt="">
+</div>
+</div>
+</div>
+</body>
+</html>
+<script>
+    const inputField = document.getElementById('inputField');
+
+    inputField.addEventListener('input', function() {
+      if (this.value !== '') {
+        this.classList.add('has-value');
+      } else {
+        this.classList.remove('has-value');
+      }
+    });
+
+    var inputpass = document.getElementById('inputpass');
+    inputpass.addEventListener('input', function() {
+      if (this.value !== '') {
+        this.classList.add('has-value');
+        document.getElementById('gizle').style.display='inline';
+      } else {
+        this.classList.remove('has-value');
+        document.getElementById('gizle').style.display='none';
+      }
+    });
+    const gizlebtn = document.getElementById('gizle-btn');
+    let a = true;
+    inputpass.type = 'password';
+    function gizle() {
+        if (a == true) {
+          inputpass.type = 'text';
+            gizlebtn.innerText = 'Gizle';
+            a = false;
+        } else {
+            a = true;
+            inputpass.type = 'password';
+            gizlebtn.innerText = 'Göster';
+        }
+    }
+    
+    function checkInputLength() {
+      const inputElement = document.getElementById('inputpass');
+      const buttonElement = document.getElementById('my-button');
+      const inputField = document.getElementById('inputField');
+    
+      if (inputElement.value.length >= 6 && inputField.value!== '') {
+        buttonElement.removeAttribute('disabled');
+        buttonElement.style.backgroundColor='#1877F2';
+      } else {
+        buttonElement.style.backgroundColor='rgb(76,181,249)';
+        buttonElement.setAttribute('disabled', 'true');
+      }
+    }
+    
+    </script>
